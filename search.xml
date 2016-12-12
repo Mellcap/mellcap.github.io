@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[pip]]></title>
+      <url>%2F2016%2F12%2F13%2Fpip%2F</url>
+      <content type="text"><![CDATA[pip 笔记最近想整理下手头的工具，一点点写到博客里，方便以后查找。 pip 安装PIP Install pip 源目前使用阿里的源，速度很赞。 运行 emacs ~/.pip/pip.conf 或者 vi ~/.pip/pip.conf写入以下内容并保存： 123[global]trusted-host = mirrors.aliyun.comindex-url = http://mirrors.aliyun.com/pypi/simple 更新包pip install -U]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[更改Mac的图标]]></title>
+      <url>%2F2016%2F11%2F27%2F%E6%9B%B4%E6%94%B9Mac%E7%9A%84%E5%9B%BE%E6%A0%87%2F</url>
+      <content type="text"><![CDATA[应用越来越多，图标的风格却不统一，看着也厌倦了。 索性将Mac的图标更新一下，换个心情。 图标来源替换图标需要.icns格式的文件。 Github上已经有人维护了一套扁平化的图标：Flat.icns 比较好的Github项目： Flat.icns Icons-flat-osx Mac-icns 更改Mac的图标一、选择应用程序打开Finder中的应用程序，选择要更改图标的应用。 二、查看简介按Command+I或右键显示简介来查看应用简介。 三、替换将下载好的.icns的图标拖到原有图标上，替换成功。 系统级的图标更换参照如何替换 Finder 图标 恢复原来的图标如果替换的图标不满意，直接查看简介后点击图标按Delete键即可。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[防止odoo的'web.base.url'参数随登陆而更新]]></title>
+      <url>%2F2016%2F11%2F09%2F%E9%98%B2%E6%AD%A2odoo%E7%9A%84-web-base-url-%E5%8F%82%E6%95%B0%E9%9A%8F%E7%99%BB%E9%99%86%E8%80%8C%E6%9B%B4%E6%96%B0%2F</url>
+      <content type="text"><![CDATA[问题最近一直遇到这样的问题： 以Admin的身份登陆odoo后台时，如果带端口访问时，会自动更新系统参数中的web.base.url的值。例如我以www.mellcap.com:48369登陆后台时，web.base.url的值会从http://www.mellcap.com改为http://www.mellcap.com:48369 解决方法在系统参数中增加web.base.url.freeze字段并赋值为1(也可以是其他非空参数)就可以解决该问题了。原理在odoo/openerp/addons/base/res/res_users.py中有这样一段函数： 12345678910111213141516171819202122232425262728def authenticate(self, db, login, password, user_agent_env): """Verifies and returns the user ID corresponding to the given ``login`` and ``password`` combination, or False if there was no matching user. :param str db: the database on which user is trying to authenticate :param str login: username :param str password: user password :param dict user_agent_env: environment dictionary describing any relevant environment attributes """ uid = self._login(db, login, password) if uid == openerp.SUPERUSER_ID: # Successfully logged in as admin! # Attempt to guess the web base url... if user_agent_env and user_agent_env.get('base_location'): cr = self.pool.cursor() try: base = user_agent_env['base_location'] ICP = self.pool['ir.config_parameter'] if not ICP.get_param(cr, uid, 'web.base.url.freeze'): ICP.set_param(cr, uid, 'web.base.url', base) cr.commit() except Exception: _logger.exception("Failed to update web.base.url configuration parameter") finally: cr.close() return uid 精华在这里： 123if not ICP.get_param(cr, uid, 'web.base.url.freeze'): ICP.set_param(cr, uid, 'web.base.url', base)cr.commit() 如果有web.base.url.freeze那么就不更新web.base.url了。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Zsh]]></title>
+      <url>%2F2016%2F04%2F01%2FZsh%2F</url>
+      <content type="text"><![CDATA[Zshbash中颜色配置mac下载了iTerm2后安装了oh-my-zsh，但是ls没有显示颜色，不好区分文件和目录。 原本bash目录是可以显示颜色的，看了bash_profile中的配置：1export CLICOLOR=1 google了一下，发现如果要在zsh中显示目录颜色，要在.zshrc文件中配置LSCOLORS:123# LSCOLORSexport LSCOLORS="exfxcxdxbxexexabagacad"alias ls='ls -G' 重启终端，ls就能看到目录的颜色了。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[odoo中Selection取得字段定义]]></title>
+      <url>%2F2016%2F01%2F27%2Fodoo%E4%B8%ADSelection%E5%8F%96%E5%BE%97%E5%AD%97%E6%AE%B5%E5%AE%9A%E4%B9%89%2F</url>
+      <content type="text"><![CDATA[定义模型为: res.medical.doctor1gender = fields.Selection([(0, u'女'), (1, u'男')], u'性别', select=True) 脚本1234567req.env['res.medical.doctor']._columns['gender'].selection&gt;&gt;&gt; [(0, u'女'), (1, u'男')]dict(req.env['res.medical.doctor']._columns['gender'].selection)&gt;&gt;&gt; &#123;0: u'女', 1: u'男'&#125; 这样就可以通过dict的get(value)来拿到对应的字段定义了。 需要注意的是： gender如果不是定义在res.medical.doctor中，比如是继承的，会导致报错。 所以要提前判断一下 1if req.env['res.medical.doctor']._columns.get('gender') 扩展dict通过value拿到key1[k for k, v in field_dic.items() if v==value] 需要注意的是key是唯一的，而value是可以重复的，所以得到的是一个列表。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[python字典通过value找key]]></title>
+      <url>%2F2016%2F01%2F26%2Fpython%E5%AD%97%E5%85%B8%E9%80%9A%E8%BF%87value%E6%89%BEkey%2F</url>
+      <content type="text"><![CDATA[Python字典通过value找keyPython默认通过key找value，需要注意的是value是可以重复的 。1dict.keys()[dict.values().index(value)] 通过以上方法就可以通过value拿到key]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[odoo更新模块失败导致无法启动的解决脚本]]></title>
+      <url>%2F2016%2F01%2F24%2Fodoo%E6%9B%B4%E6%96%B0%E6%A8%A1%E5%9D%97%E5%A4%B1%E8%B4%A5%E5%AF%BC%E8%87%B4%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E8%84%9A%E6%9C%AC%2F</url>
+      <content type="text"><![CDATA[脚本123select DISTINCT STATE from ir_module_module;update ir_module_module set state='installed' where state='to upgrade'; 报错odoo更新模块时报错偶尔会引起Server无法启动，解决办法就是在数据库中运行改脚本即可。 例子更新模块时XML中写入了Model中未定义的字段”write_datea”，更新模块时报错如图重启时500，无法启动123Internal Server ErrorThe server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. 此时，进入数据库，运行上面给的脚本，重启后即可进入。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Sublime]]></title>
+      <url>%2F2016%2F01%2F24%2FSublime%2F</url>
+      <content type="text"><![CDATA[Sublime快捷键osx快捷键 command + D: 多重选择同一单词，可以一起编辑 command + shift + L: 多重选择，配合command + ←／→，可以对首尾快速编辑 command + shift + V: 在当前缩进下粘贴代码(避免粘贴代码还要重新调缩进) command + shift + J: 选择同缩进内容 control + M: 首尾括号跳转 control + shift + M: 选择首位括号间东西 command + P: @ 方法 # 关键字 : 行号 插件 王牌必然是 PackageControl 其次是 Anaconda Git跟踪 GitGutter Spacegray皮肤以及BracketHighlighter(自动匹配括号)插件 说明 格式化Python Auto​PEP8 注：control + shift + 8 格式化选中代码 智能对其 Alignment 格式化HTML HTMLBeautify 配置文件12345678910111213141516171819202122232425262728293031323334&#123; "auto_complete": true, "auto_complete_commit_on_tab": true, // 在选中区域搜索 "auto_find_in_selection": true, // 使光标闪动更加柔和 "caret_style": "phase", "color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme", // 显示空白字符 "draw_white_space": "all", // 保存时自动增加文件末尾换行 "ensure_newline_at_eof_on_save": true, "font_face": "Monaco", "font_size": 13, // 高亮当前行 "highlight_line": true, // 高亮有修改的标签 "highlight_modified_tabs": true, "ignored_packages": [ "Vintage" ], "rulers": [ 72, 79 ], "tab_size": 4, "theme": "Spacegray Eighties.sublime-theme", // 使用空格代替tab "translate_tabs_to_spaces": true, // 保存时自动去除行末空白 "trim_trailing_white_space_on_save": true&#125;]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Hexo]]></title>
+      <url>%2F2016%2F01%2F24%2FHexo%2F</url>
+      <content type="text"><![CDATA[Hexo基本操作操作 hexo n &quot;title&quot; # new 新建文章 hexo g # generate 生成静态页面 hexo s # server 本地查看 0.0.0.0:4000 hexo d # deploy 部署到GitHub 注：在title、date等所有文件后面一定要加空格,否则会报错。 安装最近安装Hexo出现DTraceProviderBindings的错误，参考了这位朋友的方法，终于成功，记录一下。MacOs下DTraceProviderBindings错误]]></content>
+    </entry>
+
+    
+  
+  
+</search>
