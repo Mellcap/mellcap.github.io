@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[关于 python 异步框架]]></title>
+      <url>%2F2016%2F12%2F25%2F%E5%85%B3%E4%BA%8Epython%E5%BC%82%E6%AD%A5%E6%A1%86%E6%9E%B6%2F</url>
+      <content type="text"><![CDATA[关于 python 的异步框架自从 python3 引入 asyncio 之后，python 的异步备受关注，所以也一直想找个框架来玩玩。 目前比较感兴趣的有三个: tornado : Facebook开源的一款，现在已经非常成熟了，异步协程支持的都很好。 aiohttp : 参加PyCon时了解到的，速度上很是理想。 sanic : 看博客时了解到的，速度惊人，据说可以达到 Go 的级别。 选择先占个坑，想都玩儿一下再来评价一下三个框架的优劣。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[virtualenv和virtualenvwrapper]]></title>
       <url>%2F2016%2F12%2F13%2Fvirtualenv%E5%92%8Cvirtualenvwrapper%2F</url>
       <content type="text"><![CDATA[virtualenv和virtualenvwrappervirtualenvvirtualenv 就是虚拟且独立的 Python 环境 virtualenvwrappervirtualenvwrapper 是 virtualenv 的扩展工具，提供了一系列命令行命令，可以方便地创建、删除、复制、切换不同的虚拟环境。 安装12pip install virtualenvpip install virtualenvwrapper 安装 virtualenvwrapper 后需要设置环境变量，添加以下到 .zshrc 中 1234if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then export WORKON_HOME=$HOME/.virtualenvs source /usr/local/bin/virtualenvwrapper.shfi 然后执行 source ~/.zshrc 命令123456789101112131415mkvirtualenv # 创建虚拟环境lsvirtualenv -b # 列出虚拟环境workon [虚拟环境名称] # 切换虚拟环境lssitepackages # 查看环境里安装了哪些包cdvirtualenv [子目录名] # 进入当前环境的目录cpvirtualenv [source] [dest] # 复制虚拟环境deactivate # 退出虚拟环境rmvirtualenv [虚拟环境名称] # 删除虚拟环境 参考文章: Python 开发必备神器 - virtualenv]]></content>
