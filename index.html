@@ -369,18 +369,12 @@
         
           
             <p>最近参与了一些开源项目，刚fork了个项目，想一直维护着。但是不知道如何与原项目保持同步，google了一下发现原来是这样，记录一下。</p>
-<h2 id="原项目fetch到本地，然后merge"><a href="#原项目fetch到本地，然后merge" class="headerlink" title="原项目fetch到本地，然后merge"></a>原项目fetch到本地，然后merge</h2><ol>
-<li>配置原项目，即<a href="https://help.github.com/articles/configuring-a-remote-for-a-fork/" target="_blank" rel="external">上游仓库</a></li>
-</ol>
+<h2 id="原项目fetch到本地，然后merge"><a href="#原项目fetch到本地，然后merge" class="headerlink" title="原项目fetch到本地，然后merge"></a>原项目fetch到本地，然后merge</h2><p>1.配置原项目，即<a href="https://help.github.com/articles/configuring-a-remote-for-a-fork/" target="_blank" rel="external">上游仓库</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git</div></pre></td></tr></table></figure>
-<ol>
-<li><p>fetch</p>
+<p>2.fetch</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch upstream</div></pre></td></tr></table></figure>
-</li>
-<li><p>merge</p>
+<p>3.merge</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git merge upstream/master</div></pre></td></tr></table></figure>
-</li>
-</ol>
 <h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p><a href="http://jinlong.github.io/2015/10/12/syncing-a-fork/" target="_blank" rel="external">如何同步 Github fork 出来的分支</a></p>
 
           

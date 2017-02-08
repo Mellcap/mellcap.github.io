@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[Github fork后如何同步]]></title>
       <url>%2F2017%2F02%2F07%2FGithub-fork%E5%90%8E%E5%A6%82%E4%BD%95%E5%90%8C%E6%AD%A5%2F</url>
-      <content type="text"><![CDATA[最近参与了一些开源项目，刚fork了个项目，想一直维护着。但是不知道如何与原项目保持同步，google了一下发现原来是这样，记录一下。 原项目fetch到本地，然后merge 配置原项目，即上游仓库 1git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git fetch 1git fetch upstream merge 12git checkout mastergit merge upstream/master 参考资料：如何同步 Github fork 出来的分支]]></content>
+      <content type="text"><![CDATA[最近参与了一些开源项目，刚fork了个项目，想一直维护着。但是不知道如何与原项目保持同步，google了一下发现原来是这样，记录一下。 原项目fetch到本地，然后merge1.配置原项目，即上游仓库 1git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git 2.fetch 1git fetch upstream 3.merge 12git checkout mastergit merge upstream/master 参考资料：如何同步 Github fork 出来的分支]]></content>
     </entry>
 
     
