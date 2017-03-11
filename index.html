@@ -272,6 +272,153 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://mellcap.github.io/2017/03/11/MellPlayer-基于网易云歌单的命令行播放器/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Mellcap">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Mellcap">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Mellcap" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/11/MellPlayer-基于网易云歌单的命令行播放器/" itemprop="url">
+                  MellPlayer, 基于网易云歌单的命令行播放器
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-11T08:49:46+08:00">
+                2017-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MellPlayer/" itemprop="url" rel="index">
+                    <span itemprop="name">MellPlayer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="MellPlayer"><a href="#MellPlayer" class="headerlink" title="MellPlayer"></a>MellPlayer</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我写代码时非常喜欢听音乐，最近在网易云歌单中听到了许多入耳惊艳的歌，觉得非常不错。但是歌单的随机播放以及快速切换是个软肋，于是开发了MellPlayer，可以按照分类随机听歌，实现了歌单间的快速切换，希望大家能够喜欢。</p>
+<img src="/2017/03/11/MellPlayer-基于网易云歌单的命令行播放器/mellplayer_tutorial.gif" alt="mellplayer_tutorial.gif" title="">
+<h2 id="开发理念"><a href="#开发理念" class="headerlink" title="开发理念"></a>开发理念</h2><p>MellPlayer的初版刚刚发布，还有许许多多需要改进的地方，非常希望能有志同道合的朋友Fork下来，一起打造越来越完美的播放器，下面就说下我的开发理念：</p>
+<blockquote>
+<p>MellPlayer是一款命令行播放器，主要是为了实现根据心情随机听歌，并且能够快速进行歌单间的切换，简约流畅，我希望在此基础上谨慎添加小而美的功能。并不想引入过多繁琐的功能，添加一大堆的快捷键，将简洁的东西繁琐化是违背我的初衷的。</p>
+</blockquote>
+<h2 id="关于项目"><a href="#关于项目" class="headerlink" title="关于项目"></a>关于项目</h2><p>项目地址：<a href="https://github.com/Mellcap/MellPlayer" target="_blank" rel="external">MellPlayer</a><br>项目基于python3开发，依赖mpv。还有很多地方需要优化改进，大家发现什么问题可以给我提Issue，当然非常欢迎有兴趣的朋友加入，一起打造我们喜欢的播放器。<br>既然看到这儿了，就来 <a href="https://github.com/Mellcap/MellPlayer" target="_blank" rel="external">Star</a> 一下， 互相 <a href="https://github.com/Mellcap" target="_blank" rel="external">Follow</a> 一下吧哈哈！！！</p>
+<h3 id="支持"><a href="#支持" class="headerlink" title="支持"></a>支持</h3><p>OSX &amp; Linux (Linux未经过测试)</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>通过 <a href="https://pip.pypa.io/en/stable/" target="_blank" rel="external">pip3</a> 安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[sudo] pip3 install MellPlayer</div></pre></td></tr></table></figure></p>
+<h3 id="Mac-OSX-安装依赖"><a href="#Mac-OSX-安装依赖" class="headerlink" title="Mac OSX 安装依赖"></a>Mac OSX 安装依赖</h3><p>通过 <a href="https://brew.sh/" target="_blank" rel="external">Homebrew</a> 安装 mpv<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mpv</div></pre></td></tr></table></figure></p>
+<h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><p>通过 pip3 升级<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[sudo] pip3 install MellPlayer --upgrade</div></pre></td></tr></table></figure></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>在命令行直接输入mellplayer即可享受：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mellplayer</div></pre></td></tr></table></figure></p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">操作</div><div class="line">[j]     [Next Line]         ---&gt;  下</div><div class="line">[k]     [Prev Line]         ---&gt;  上</div><div class="line">[q]     [Quit]              ---&gt;  退出</div><div class="line"></div><div class="line">音乐</div><div class="line">[space] [Start/Pause]       ---&gt;  播放／暂停</div><div class="line">[n]     [Next Song]         ---&gt;  下一曲</div><div class="line">[p]     [Prev Song]         ---&gt;  上一曲</div><div class="line">[f]     [Forward Playlist]  ---&gt;  下个歌单</div><div class="line">[b]     [Backward Playlist] ---&gt;  上个歌单</div><div class="line"></div><div class="line">音量</div><div class="line">[-]     [Reduce Volume]     ---&gt;  减小音量</div><div class="line">[=]     [Increase Volume]   ---&gt;  增加音量</div><div class="line">[m]     [Mute]              ---&gt;  静音</div><div class="line"></div><div class="line">歌词</div><div class="line">[l]     [Show/Hide Lyric]   ---&gt;  显示／关闭歌词</div><div class="line"></div><div class="line">帮助</div><div class="line">[h]     [Show/Hide Help]    ---&gt;  显示／关闭帮助</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://mellcap.github.io/2017/02/07/Github-fork后如何同步/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1540,142 +1687,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mellcap.github.io/2016/01/26/python字典通过value找key/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mellcap">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Mellcap">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Mellcap" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/26/python字典通过value找key/" itemprop="url">
-                  python字典通过value找key
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-01-26T14:30:30+08:00">
-                2016-01-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Python字典通过value找key"><a href="#Python字典通过value找key" class="headerlink" title="Python字典通过value找key"></a>Python字典通过value找key</h1><p>Python默认通过key找value，需要注意的是<strong>value是可以重复的</strong> 。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dict.keys()[dict.values().index(value)]</div></pre></td></tr></table></figure></p>
-<p>通过以上方法就可以通过value拿到key</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1721,7 +1732,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1729,7 +1740,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1738,7 +1749,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

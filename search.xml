@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[MellPlayer, 基于网易云歌单的命令行播放器]]></title>
+      <url>%2F2017%2F03%2F11%2FMellPlayer-%E5%9F%BA%E4%BA%8E%E7%BD%91%E6%98%93%E4%BA%91%E6%AD%8C%E5%8D%95%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%92%AD%E6%94%BE%E5%99%A8%2F</url>
+      <content type="text"><![CDATA[MellPlayer前言我写代码时非常喜欢听音乐，最近在网易云歌单中听到了许多入耳惊艳的歌，觉得非常不错。但是歌单的随机播放以及快速切换是个软肋，于是开发了MellPlayer，可以按照分类随机听歌，实现了歌单间的快速切换，希望大家能够喜欢。 开发理念MellPlayer的初版刚刚发布，还有许许多多需要改进的地方，非常希望能有志同道合的朋友Fork下来，一起打造越来越完美的播放器，下面就说下我的开发理念： MellPlayer是一款命令行播放器，主要是为了实现根据心情随机听歌，并且能够快速进行歌单间的切换，简约流畅，我希望在此基础上谨慎添加小而美的功能。并不想引入过多繁琐的功能，添加一大堆的快捷键，将简洁的东西繁琐化是违背我的初衷的。 关于项目项目地址：MellPlayer项目基于python3开发，依赖mpv。还有很多地方需要优化改进，大家发现什么问题可以给我提Issue，当然非常欢迎有兴趣的朋友加入，一起打造我们喜欢的播放器。既然看到这儿了，就来 Star 一下， 互相 Follow 一下吧哈哈！！！ 支持OSX &amp; Linux (Linux未经过测试) 安装通过 pip3 安装1[sudo] pip3 install MellPlayer Mac OSX 安装依赖通过 Homebrew 安装 mpv1brew install mpv 升级通过 pip3 升级1[sudo] pip3 install MellPlayer --upgrade 使用在命令行直接输入mellplayer即可享受：1mellplayer 快捷键1234567891011121314151617181920212223操作[j] [Next Line] ---&gt; 下[k] [Prev Line] ---&gt; 上[q] [Quit] ---&gt; 退出音乐[space] [Start/Pause] ---&gt; 播放／暂停[n] [Next Song] ---&gt; 下一曲[p] [Prev Song] ---&gt; 上一曲[f] [Forward Playlist] ---&gt; 下个歌单[b] [Backward Playlist] ---&gt; 上个歌单音量[-] [Reduce Volume] ---&gt; 减小音量[=] [Increase Volume] ---&gt; 增加音量[m] [Mute] ---&gt; 静音歌词[l] [Show/Hide Lyric] ---&gt; 显示／关闭歌词帮助[h] [Show/Hide Help] ---&gt; 显示／关闭帮助]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Github fork后如何同步]]></title>
       <url>%2F2017%2F02%2F07%2FGithub-fork%E5%90%8E%E5%A6%82%E4%BD%95%E5%90%8C%E6%AD%A5%2F</url>
       <content type="text"><![CDATA[最近参与了一些开源项目，刚fork了个项目，想一直维护着。但是不知道如何与原项目保持同步，google了一下发现原来是这样，记录一下。 原项目fetch到本地，然后merge1.配置原项目，即上游仓库 1git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git 2.fetch 1git fetch upstream 3.merge 12git checkout mastergit merge upstream/master 参考资料：如何同步 Github fork 出来的分支]]></content>
