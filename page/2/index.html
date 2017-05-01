@@ -260,146 +260,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mellcap.github.io/2016/01/26/python字典通过value找key/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mellcap">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mellcap">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/26/python字典通过value找key/" itemprop="url">
-                  python字典通过value找key
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-26T14:30:30+08:00">
-                2016-01-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Python字典通过value找key"><a href="#Python字典通过value找key" class="headerlink" title="Python字典通过value找key"></a>Python字典通过value找key</h1><p>Python默认通过key找value，需要注意的是<strong>value是可以重复的</strong> 。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dict.keys()[dict.values().index(value)]</div></pre></td></tr></table></figure></p>
-<p>通过以上方法就可以通过value拿到key</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://mellcap.github.io/2016/01/24/odoo更新模块失败导致无法启动的解决脚本/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -497,7 +357,7 @@
           
             <h1 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">select DISTINCT STATE from ir_module_module;</div><div class="line"></div><div class="line">update ir_module_module <span class="built_in">set</span> state=<span class="string">'installed'</span> <span class="built_in">where</span> state=<span class="string">'to upgrade'</span>;</div></pre></td></tr></table></figure>
 <h1 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h1><p>odoo更新模块时报错偶尔会引起Server无法启动，解决办法就是在数据库中运行改脚本即可。</p>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>更新模块时XML中写入了Model中未定义的字段”write_datea”，更新模块时报错如图<br><img src="http://7xqfjn.com1.z0.glb.clouddn.com/2016%3A01%3A24%3Aodoo%E6%9B%B4%E6%96%B0%E6%A8%A1%E5%9D%97%E6%8A%A5%E9%94%991.png" alt="报错"><br>重启时500，无法启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Internal Server Error</div><div class="line"></div><div class="line">The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error <span class="keyword">in</span> the application.</div></pre></td></tr></table></figure></p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>更新模块时XML中写入了Model中未定义的字段”write_date”，更新模块时报错如图<br><img src="http://7xqfjn.com1.z0.glb.clouddn.com/2016%3A01%3A24%3Aodoo%E6%9B%B4%E6%96%B0%E6%A8%A1%E5%9D%97%E6%8A%A5%E9%94%991.png" alt="报错"><br>重启时500，无法启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Internal Server Error</div><div class="line"></div><div class="line">The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error <span class="keyword">in</span> the application.</div></pre></td></tr></table></figure></p>
 <p>此时，进入数据库，运行上面给的脚本，重启后即可进入。</p>
 
           
@@ -891,7 +751,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -902,7 +762,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -913,7 +773,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
