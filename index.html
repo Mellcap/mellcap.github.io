@@ -1,93 +1,125 @@
+---
+layout: null
+title: Jekyll Theme - Home Page - Massively
+description: Every great website starts with a great homepage. The homepage tells your viewers what your site is all about and gives your viewers a place to come back to.
+sitemap:
+    priority: 1.0
+    lastmod: 2017-11-02
+    changefreq: weekly
+---
 <!DOCTYPE HTML>
 <!--
-	Identity by HTML5 UP
+	Massively by HTML5 UP
 	html5up.net | @ajlkn
+  Jekyll integration by somiibo.com
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 	<head>
-		<title>Mellcap Zhao</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-                <!-- <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /> -->
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    {% include head.html %}
+
+
 	</head>
-	<body class="is-preload">
+	<body class="is-loading">
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+            <h1>{{site.title}}</h1>
+						<h2>The Jekyll Theme Version</h2>
+						<p>Massively is an HTML5 website theme designed by <a href="https://twitter.com/ajlkn">@ajlkn</a> for <a href="https://html5up.net">HTML5 UP</a><br />
+						and released for free under the <a href="https://html5up.net/license">Creative Commons license</a>. Jekyll integration by <a href="https://somiibo.com">Somiibo</a></p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="{{ "/" | absolute_url }}" class="logo">{{site.title}}</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+
+            {% include nav.html %}
+
+						<ul class="icons">
+              <li><a href="https://twitter.com/{{site.twitter}}" class="icon fa-twitter" rel="nofollow"><span class="label">Twitter</span></a></li>
+              <li><a href="https://facebook.com/{{site.facebook}}" class="icon fa-facebook" rel="nofollow"><span class="label">Facebook</span></a></li>
+              <li><a href="https://instagram.com/{{site.instagram}}" class="icon fa-instagram" rel="nofollow"><span class="label">Instagram</span></a></li>
+              <li><a href="https://github.com/{{site.github}}" class="icon fa-github" rel="nofollow"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
 
 				<!-- Main -->
-					<section id="main">
-						<header>
-							<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
-							<h1>Mellcap Zhao</h1>
-							<p>Software Engineer</p>
-						</header>
-						<!--
-						<hr />
-						<h2>Extra Stuff!</h2>
-						<form method="post" action="#">
-							<div class="fields">
-								<div class="field">
-									<input type="text" name="name" id="name" placeholder="Name" />
-								</div>
-								<div class="field">
-									<input type="email" name="email" id="email" placeholder="Email" />
-								</div>
-								<div class="field">
-									<select name="department" id="department">
-										<option value="">Department</option>
-										<option value="sales">Sales</option>
-										<option value="tech">Tech Support</option>
-										<option value="null">/dev/null</option>
-									</select>
-								</div>
-								<div class="field">
-									<textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
-								</div>
-								<div class="field">
-									<input type="checkbox" id="human" name="human" /><label for="human">I'm a human</label>
-								</div>
-								<div class="field">
-									<label>But are you a robot?</label>
-									<input type="radio" id="robot_yes" name="robot" /><label for="robot_yes">Yes</label>
-									<input type="radio" id="robot_no" name="robot" /><label for="robot_no">No</label>
-								</div>
-							</div>
-							<ul class="actions special">
-								<li><a href="#" class="button">Get Started</a></li>
-							</ul>
-						</form>
-						<hr />
-						-->
-						<footer>
-							<ul class="icons">
-                                                          <li><a href="http://blog.mellcap.top" class="fa-rss">Blog</a></li>
-                                                          <li><a href="https://github.com/Mellcap" class="fa-github">Github</a></li>
-                                                          <li><a href="mailto:imellcap@gmail.com" class="fa-envelope">Mail</a></li>
-							</ul>
-						</footer>
-					</section>
+					<div id="main">
+						<!-- Featured Post -->
+							<article class="post featured">
+								<header class="major">
+									<h2><a href="#">Massively is a versatile Jekyll theme</a></h2>
+									<p>With only a few edits, you can have a stunningly beautiful website <br />
+                    nearly out of the box. Of course... you can always take it further <br />
+                    and make it something even more amazing!</p>
+								</header>
+								<a href="#" class="image main"><img src="{{ "/images/pic01.jpg" | absolute_url }}" alt="" /></a>
+                <p>Regardless of your website's function, the homepage is what brings the user in.
+                  If it's anything short of intriguing, captivating, or just plain cool, you're out of luck and you might deter some visitors.</p>
+                <p>Your homepage must clearly describe what your site is about.
+									Having engaging content will in this manner enable you to offer and it will make your customers more inclined to purchase from you. Content is a way to position your organization in the correct place for your clients to discover you.
+								</p>
+								<p>
+									In this manner, content in itself is a standout amongst the best promoting apparatuses in your whole advertising toolbox! Rather than making your content around your promoting technique, it's limitlessly more productive to fabricate your showcasing around your content.
+								 </p>
+
+							</article>
+
+						<!-- Posts -->
+							<section class="posts">
+                {% for post in site.posts limit:3 %}
+                {% assign mod3 = forloop.index | modulo: 3 %}
+  								<article>
+  									<header>
+  										<span class="date">{{ post.date | date_to_string }}</span>
+  										<h2><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
+  									</header>
+  									<a href="{{ post.url | absolute_url }}" class="image fit"><img src="{{ post.image | absolute_url }}" alt="" /></a>
+  									<p>{{ post.excerpt }}</p>
+  									<ul class="actions">
+  										<li><a href="{{ post.url | absolute_url }}" class="button">Full Story</a></li>
+  									</ul>
+  								</article>
+                  {% if mod3 == 0 %}
+                  <article>
+  									<header>
+  										<h2><a href="#">Sponsored</a></h2>
+  									</header>
+
+  								</article>
+                  {% endif %}
+                {% endfor %}
+
+							</section>
+
+						<!-- Footer -->
+							<footer>
+                <ul class="actions">
+                  <li><a href="{{ "/blog/" | absolute_url }}" class="button">Our Blog</a></li>
+                </ul>
+							</footer>
+
+					</div>
 
 				<!-- Footer -->
-					<footer id="footer">
-					  <ul class="copyright">
-                                            <li>&copy; Mellcap Zhao</li><li>2015 - 2018</li>
-							<!-- <li>&copy; Jane Doe</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li> -->
-						</ul>
-					</footer>
+        {% include foot.html %}
 
 			</div>
 
 		<!-- Scripts -->
-			<script>
-				if ('addEventListener' in window) {
-					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
-					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-				}
-			</script>
+		{% include scripts-main.html %}
+    {% include tracking.html %}
 
 	</body>
 </html>
